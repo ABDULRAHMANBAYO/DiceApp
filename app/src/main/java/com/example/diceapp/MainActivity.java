@@ -10,6 +10,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -41,6 +44,14 @@ public class MainActivity extends AppCompatActivity {
                    diceImageOne.setImageResource(diceImages[randomNumber]);
                     randomNumber = numberGenerator.nextInt(6);
                     diceImageTwo.setImageResource(diceImages[randomNumber]);
+                    YoYo.with(Techniques.Shake)
+                            .duration(400)
+                            .repeat(0)
+                            .playOn(findViewById(R.id.diceOne));
+                    YoYo.with(Techniques.Shake)
+                            .duration(400)
+                            .repeat(0)
+                            .playOn(findViewById(R.id.diceTwo));
                     mp.start();
                 }
 
